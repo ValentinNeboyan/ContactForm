@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h1>Здравствуйте! Авторизуйтесь для продожения!</h1>
+<div >
+    <h3>Здравствуйте! Авторизуйтесь для продожения!</h3>
 </div>
 
     @endsection
