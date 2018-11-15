@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+require_once(base_path('routes/web.user.php'));
+require_once(base_path('routes/web.admin.php'));
