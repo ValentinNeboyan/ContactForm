@@ -16,7 +16,7 @@ class Role extends Model
         'display',
     ];
 
-    public function user()
+    public function users()
     {
         return $this->hasMany(User::class);
     }
