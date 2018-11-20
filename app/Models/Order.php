@@ -9,6 +9,7 @@ class Order extends Model
     protected $fillable = [
         'title',
         'body',
+        'file_path',
         'user_id',
 
     ];
@@ -16,6 +17,11 @@ class Order extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function message()
+    {
+        $this->hasMany(Message::class);
     }
 
     public static function boot()

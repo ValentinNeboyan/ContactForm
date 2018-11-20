@@ -32,8 +32,19 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ route('orders.create') }}">Создать заказ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user">Мои заказы</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Disabled</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
