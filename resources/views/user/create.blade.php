@@ -3,7 +3,7 @@
 @section('content')
 
     @php
-        $route = route('orders.store');
+        $route = route('user.orders.store');
         $method = 'post';
     @endphp
 
@@ -18,6 +18,7 @@
         <div class="form-group">
             <label for="title">Заголовок</label>
             <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" required>
+            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
         </div>
 
 

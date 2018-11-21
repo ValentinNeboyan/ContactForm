@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
+
+
 </head>
 <body>
     <div id="app">
@@ -34,7 +38,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ route('orders.create') }}">Создать заказ</a>
+                            <a class="nav-link active" href="{{ route('user.orders.create') }}">Создать заказ</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/user">Мои заказы</a>

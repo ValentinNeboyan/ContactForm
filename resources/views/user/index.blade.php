@@ -22,7 +22,7 @@
                 @forelse($orderslist as $order)
                 <tbody>
                 <tr>
-                    <td><a href="{{ route('orders.show', $order->getKey()) }}">{{ $order->title }}</a></td>
+                    <td><a href="{{ route('user.orders.show', $order->getKey()) }}">{{ $order->title }}</a></td>
                     <td>@if($order->order_status==false) Необработана @else Обработана @endif</td>
                     <td>{{ $order->created_at }}</td>
                 </tr>

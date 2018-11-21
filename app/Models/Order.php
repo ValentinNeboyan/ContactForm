@@ -11,8 +11,8 @@ class Order extends Model
         'body',
         'file_path',
         'user_id',
-
     ];
+
 
     public function user()
     {
@@ -24,7 +24,7 @@ class Order extends Model
         $this->hasMany(Message::class);
     }
 
-    public static function boot()
+ /*   public static function boot()
     {
         parent::boot();
 
@@ -33,5 +33,5 @@ class Order extends Model
         });
 
 
-    }
+    }*/
 }
