@@ -7,6 +7,7 @@ use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Message;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\MailController;
 class UserController extends Controller
 {
     public function index()
@@ -35,10 +36,13 @@ class UserController extends Controller
         }
 
        $order_id=$order->id;
-        $message=Message::create([
-            'body'=>$order->body,
+        $name=Auth::user()->name;
+        Message::create([
+            'body'=>$name.': '.$order->body,
             'order_id'=>$order_id,
         ]);
+
+       MailController::send();
 
 
         return redirect()->route('user.orders.show',  $order);
@@ -47,8 +51,9 @@ class UserController extends Controller
 
     public function show(Order $order)
     {
-
-        return view('user.show', compact('order'));
+        $order_id=$order->id;
+        $messages=DB::table('messages')->where('order_id', $order_id)->orderBy('id','desc')->pluck('body');
+        return view('user.show')->with(compact('messages', $messages))->with('order', $order);
     }
 
     public function message(Request $request, Order $order )

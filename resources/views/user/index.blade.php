@@ -2,15 +2,8 @@
 
 @section('content')
 
-
-
-    <div >
-        <h3>Мои заказы</h3>
-    </div>
-
-
-
-
+<div class="container">
+    <h3>Мои заказы</h3>
             <table class="table">
                 <thead class="thead-dark">
                 <tr>
@@ -23,7 +16,7 @@
                 <tbody>
                 <tr>
                     <td><a href="{{ route('user.orders.show', $order->getKey()) }}">{{ $order->title }}</a></td>
-                    <td>@if($order->order_status==false) Необработана @else Обработана @endif</td>
+                    <td>{{ ($order->order_status==1) ? 'Обработан' : 'Необработан' }}</td>
                     <td>{{ $order->created_at }}</td>
                 </tr>
                 </tbody>
