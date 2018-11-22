@@ -34,16 +34,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link active" href="">Создать заказ</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="/admin">Заказы клиентов</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
                         </li>
                     </ul>
 

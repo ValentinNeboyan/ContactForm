@@ -24,14 +24,4 @@ class Order extends Model
         $this->hasMany(Message::class);
     }
 
- /*   public static function boot()
-    {
-        parent::boot();
-
-        self::saving(function ($model) {
-            $model->user_id = auth()->user()->getKey();
-        });
-
-
-    }*/
 }

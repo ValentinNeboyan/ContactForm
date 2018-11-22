@@ -7,12 +7,6 @@
         <h4><span class="badge badge-secondary">{{ $order->title }}</span>
             <span class="badge badge-primary">{{ ($order->order_status==1) ? 'Обработан' : 'Необработан' }}</span></h4>
 
-    @if($order->file_path)
-
-        <div class="mt-4">
-            <button class="btn btn-primary" href="{{ route('admin.orders.download') }}" >Скачать файл</button>
-        </div>
-    @endif
     </div>
     <br>
     <div class="container">
@@ -20,7 +14,7 @@
 
                 @foreach($messages as $message)
 
-                    <p class="text-primary">{{ $message }}</p>
+                <p class="text-primary">{{ $message }}</p>
                 @endforeach
 
         </div>

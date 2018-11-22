@@ -45,7 +45,7 @@ class LoginController extends Controller
             return 'admin';
         }
         elseif (Auth::check() && Auth::user()->role->name == 'user') {
-            return 'user';
+            return 'orders';
         }
         else {
             return '/home';

@@ -2,18 +2,12 @@
 
 @section('content')
 
-    @php
-        $route = route('user.orders.store');
-        $method = 'post';
-    @endphp
-
-
     <div >
         <h3>Форма заказа</h3>
     </div>
-    <form action="{{ $route }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('orders.store') }}" method="post" enctype="multipart/form-data">
         @csrf
-        @method($method)
+
 
         <div class="form-group">
             <label for="title">Заголовок</label>
@@ -34,7 +28,7 @@
         </div>
 
         <div class="mt-4">
-            <button class="btn btn-primary">Отправить</button>
+            <button class="btn btn-primary" >Отправить</button>
         </div>
     </form>
 @endsection

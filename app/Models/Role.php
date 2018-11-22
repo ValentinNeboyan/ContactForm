@@ -6,10 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    public static $ROLES = [
-        'admin' => 'Менеджер',
-        'client' => 'Клиент',
-    ];
+
 
     protected $fillable = [
         'name',
@@ -21,8 +18,4 @@ class Role extends Model
         return $this->hasMany(User::class);
     }
 
-    public function down()
-    {
-        Schema::dropIfExists('roles');
-    }
 }

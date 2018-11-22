@@ -8,15 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Message;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\MailController;
-class UserController extends Controller
-{
-    public function index()
-    {
-        $orderslist=Order::query()->where('user_id', Auth::user()->id);
 
-        return view('user.index',[
-        'orderslist' => $orderslist->paginate(10)]);
-    }
+class OrderController extends Controller
+{
 
     public function create()
     {
@@ -30,22 +24,21 @@ class UserController extends Controller
 
         if ($request->hasFile('file')) {
 
-            $path = $request->file('file')->store('files');
+            $path = $request->file('file')->store('public/files');
             $order->file_path=$path;
             $order->save();
         }
 
-       $order_id=$order->id;
+        $order_id=$order->id;
         $name=Auth::user()->name;
         Message::create([
             'body'=>$name.': '.$order->body,
             'order_id'=>$order_id,
         ]);
 
-       MailController::send();
+        MailController::send();
 
-
-        return redirect()->route('user.orders.show',  $order);
+        return redirect()->route('orders.show',  $order);
     }
 
 

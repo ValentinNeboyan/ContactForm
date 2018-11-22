@@ -8,7 +8,7 @@
 
         <h4><span class="badge badge-secondary">{{ $order->title }}</span>
             <span class="badge badge-primary">{{ ($order->order_status==1) ? 'Обработан' : 'Необработан' }}</span></h4>
-        <p>{{ $order->body }}</p>
+
     </div>
     <div class="container">
         <div class="m-100 p-3" style=" height: 150px; background-color: white; overflow-y:scroll;">
@@ -22,7 +22,7 @@
     </div>
     <div class="container">
 
-        <form action="{{ route('user.orders.message', $order) }}" method="post">
+        <form action="{{ route('orders.message', $order) }}" method="post">
             @csrf
             @method('patch')
 
@@ -33,7 +33,5 @@
             </div>
 
         </form>
-
-
 
 @endsection

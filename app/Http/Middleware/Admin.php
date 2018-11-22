@@ -20,7 +20,7 @@ class Admin
             return $next($request);
         }
         elseif (Auth::check() && Auth::user()->role->name == 'user') {
-            return redirect('/user');
+            return redirect('/orders');
         }
 
 }

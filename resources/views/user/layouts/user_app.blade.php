@@ -38,16 +38,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ route('user.orders.create') }}">Создать заказ</a>
+                            <a class="nav-link active" href="{{ route('orders.create') }}">Создать заказ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/user">Мои заказы</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
+                            <a class="nav-link" href="/orders">Мои заказы</a>
                         </li>
                     </ul>
 
@@ -91,5 +85,6 @@
             @yield('content')
         </main>
     </div>
+
 </body>
 </html>

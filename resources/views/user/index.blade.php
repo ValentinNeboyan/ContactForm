@@ -15,7 +15,7 @@
                 @forelse($orderslist as $order)
                 <tbody>
                 <tr>
-                    <td><a href="{{ route('user.orders.show', $order->getKey()) }}">{{ $order->title }}</a></td>
+                    <td><a href="{{ route('orders.show', $order->getKey()) }}">{{ $order->title }}</a></td>
                     <td>{{ ($order->order_status==1) ? 'Обработан' : 'Необработан' }}</td>
                     <td>{{ $order->created_at }}</td>
                 </tr>
@@ -25,10 +25,9 @@
                 <p>Заказов нет</p>
             </div>
         @endforelse
-    </div>
-
+            </table>
     {{ $orderslist->appends(request()->except('page'))->links() }}
-
+    </div>
 
 
 @endsection

@@ -3,9 +3,7 @@
 @section('content')
 
 <div class="container">
-    <div >
         <h3>Заказы клиентов</h3>
-    </div>
     <table class="table">
         <thead class="thead-dark">
         <tr>
@@ -20,7 +18,7 @@
             <tr>
                 <td><a href="{{ route('admin.orders.show', $order->getKey()) }}">{{ $order->title }}</a></td>
                 <td>{{ $order->user->name }}</td>
-                <td>@if($order->order_status==false) Необработана @else Обработана @endif</td>
+                <td>@if($order->order_status==false) Необработан @else Обработан @endif</td>
                 <td>{{ $order->created_at }}</td>
             </tr>
             </tbody>
@@ -31,6 +29,7 @@
             </div>
             @endforelse
     </table>
+    {{ $orderslist->appends(request()->except('page'))->links() }}
             </div>
 
 

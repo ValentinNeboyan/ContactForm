@@ -52,11 +52,5 @@ class AdminController extends Controller
         $messages=DB::table('messages')->where('order_id', $order_id)->orderBy('id','desc')->pluck('body');
         return view('admin.show')->with(compact('messages', $messages))->with('order', $order);
     }
-    public function getDownload($order){
 
-
-        $path = storage_path($order->file_path);
-
-        return response()->download($path);
-    }
 }
