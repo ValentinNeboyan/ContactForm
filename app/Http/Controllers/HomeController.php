@@ -31,6 +31,8 @@ class HomeController extends Controller
 
     public function orders()
     {
+        //выводим на страницу все заказы данного клиента
+
         $orderslist=Order::query()->where('user_id', Auth::user()->id);
 
         return view('user.index',[

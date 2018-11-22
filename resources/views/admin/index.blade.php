@@ -18,11 +18,10 @@
             <tr>
                 <td><a href="{{ route('admin.orders.show', $order->getKey()) }}">{{ $order->title }}</a></td>
                 <td>{{ $order->user->name }}</td>
-                <td>@if($order->order_status==false) Необработан @else Обработан @endif</td>
+                <td>{{ ($order->order_status==1) ? 'Обработан' : 'Необработан' }}</td>
                 <td>{{ $order->created_at }}</td>
             </tr>
             </tbody>
-
         @empty
             <div class="col">
                 <p>Заказов нет</p>
@@ -31,6 +30,4 @@
     </table>
     {{ $orderslist->appends(request()->except('page'))->links() }}
             </div>
-
-
 @endsection

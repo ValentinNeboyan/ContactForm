@@ -13,8 +13,9 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $orderslist=Order::query();
+       //выводим список всех заказов
 
+        $orderslist=Order::query();
 
         return view('admin.index',[
             'orderslist' => $orderslist->paginate(10)]);
@@ -23,33 +24,35 @@ class AdminController extends Controller
 
     public function show(Order $order)
     {
+        //выводим информацию конкретного заказа и чат этого заказа
+
         $order_id=$order->id;
-        $messages=DB::table('messages')->where('order_id', $order_id)->orderBy('id','desc')->pluck('body');
+        $messages=Message::where('order_id', $order_id)->orderBy('id','desc')->pluck('body');
         return view('admin.show')->with(compact('messages', $messages))->with('order', $order);
     }
 
     public function update(Request $request, Order $order)
     {
+        //изменяем статус заказа
+
         $order->order_status=1;
         $order->save();
 
-        $order_id=$order->id;
-        $messages=DB::table('messages')->where('order_id', $order_id)->orderBy('id','desc')->pluck('body');
-        return view('admin.show')->with(compact('messages', $messages))->with('order', $order);
+        return back();
     }
 
     public function message(Request $request, Order $order )
     {
-        $order_id=request()->order->id;
+        //записываем сообщения в БД
 
+        $order_id=request()->order->id;
         if (request()->message){
             Message::create([
                 'body'=>'Менеджер: '.$request->message,
                 'order_id'=>$order_id,
             ]);
         }
-
-        $messages=DB::table('messages')->where('order_id', $order_id)->orderBy('id','desc')->pluck('body');
+        $messages=Message::where('order_id', $order_id)->orderBy('id','desc')->pluck('body');
         return view('admin.show')->with(compact('messages', $messages))->with('order', $order);
     }
 
