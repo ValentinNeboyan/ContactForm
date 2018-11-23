@@ -22,9 +22,8 @@ class OrderController extends Controller
 
         //Перед созданием заказа проверяем прошло ли 5 минут
 
-
-        $user=Auth::user()->id;
-        $lastOrder=Order::where('user_id', $user )->latest()->first();
+        
+        $lastOrder=Order::where('user_id', Auth::user()->id )->latest()->first();
 
         if ($lastOrder){
             $timelastorder=$lastOrder->created_at->secondsSinceMidnight();
