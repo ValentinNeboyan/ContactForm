@@ -24,12 +24,15 @@ class OrderController extends Controller
         //Перед созданием заказа проверяем прошло ли 5 минут
 
         $lastOrder=Order::latest()->first();
-        $timelastorder=$lastOrder->created_at->secondsSinceMidnight();
-        $currenttime=Carbon::now()->secondsSinceMidnight();
+        if ($lastOrder){
+            $timelastorder=$lastOrder->created_at->secondsSinceMidnight();
+            $currenttime=Carbon::now()->secondsSinceMidnight();
 
-        if(($currenttime-$timelastorder)<300){
-            return back()->withInput();
+            if(($currenttime-$timelastorder)<300){
+                return back()->withInput();
+            }
         }
+
 
 
 
