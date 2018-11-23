@@ -15,6 +15,7 @@
                 <p class="text-primary">{{ $message }}</p>
             @endforeach
     </div>
+
     </div>
     <div class="container">
         <form action="{{ route('orders.message', $order) }}" method="post">
@@ -26,4 +27,9 @@
                 <button class="btn btn-primary">Отправить сообщение</button>
             </div>
         </form>
+        @isset($order->file_path)
+            <div>
+                <img class="img-fluid" src="{{ asset('/storage/'.$order->file_path) }}" alt="">
+            </div>
+    @endisset
 @endsection

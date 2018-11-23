@@ -8,7 +8,7 @@
     </div>
     <br>
     <div class="container">
-        <div class="w-100 p-3" style=" height: 200px; background-color: white; overflow-y:scroll;">
+        <div class="m-100 p-3" style=" height: 200px; background-color: white; overflow-y:scroll;">
                 @foreach($messages as $message)
                 <p class="text-primary">{{ $message }}</p>
                 @endforeach
@@ -33,6 +33,12 @@
                 <button class="btn btn-primary">Обработать заказ</button>
             </div>
         </form>
+        @isset($order->file_path)
+            <div>
+                <img class="img-thumbnail" src="{{ asset('/storage/'.$order->file_path) }}" alt="">
+            </div>
+        @endisset
     </div>
+
 
 @endsection

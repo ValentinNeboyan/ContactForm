@@ -22,7 +22,7 @@ class OrderController extends Controller
 
         //Перед созданием заказа проверяем прошло ли 5 минут
 
-        
+
         $lastOrder=Order::where('user_id', Auth::user()->id )->latest()->first();
 
         if ($lastOrder){
@@ -43,8 +43,8 @@ class OrderController extends Controller
         // отправляем письмо менеджеру
 
         $order = Order::create(request()->all());
-        if ($request->hasFile('file')) {
-            $path = $request->file('file')->store('public/files');
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('images', 'public');
             $order->file_path=$path;
             $order->save();
         }
@@ -55,7 +55,7 @@ class OrderController extends Controller
             'order_id'=>$order_id,
         ]);
 
-        MailController::send();
+      MailController::send();
 
         return redirect()->route('orders.show',$order);
     }

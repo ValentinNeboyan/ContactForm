@@ -18,7 +18,7 @@
         </div>
         <div class="form-group">
             <label>Прикрепить файл</label>
-            <input type="file" class="form-control" id="file" name="file">
+            <input type="file" class="form-control" id="file" name="image">
         </div>
         <div class="mt-4">
             <button class="btn btn-primary" >Отправить</button>
