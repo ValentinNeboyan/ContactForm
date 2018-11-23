@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Message;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\MailController;
 
 use Illuminate\Support\Carbon;
@@ -23,7 +22,10 @@ class OrderController extends Controller
 
         //Перед созданием заказа проверяем прошло ли 5 минут
 
-        $lastOrder=Order::latest()->first();
+
+        $user=Auth::user()->id;
+        $lastOrder=Order::where('user_id', $user )->latest()->first();
+
         if ($lastOrder){
             $timelastorder=$lastOrder->created_at->secondsSinceMidnight();
             $currenttime=Carbon::now()->secondsSinceMidnight();
