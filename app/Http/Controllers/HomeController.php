@@ -29,11 +29,13 @@ class HomeController extends Controller
     }
 
 
+    /**
+     * show all orders of user
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function orders()
     {
-        //выводим на страницу все заказы данного клиента
-
-        $orderslist=Order::query()->where('user_id', Auth::user()->id);
+             $orderslist=Order::query()->where('user_id', Auth::user()->id);
 
         return view('user.index',[
             'orderslist' => $orderslist->paginate(10)]);

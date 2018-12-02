@@ -29,7 +29,7 @@
         </form>
         @isset($order->file_path)
             <div>
-                <img class="img-fluid" src="{{ asset('/storage/'.$order->file_path) }}" alt="">
+                <img class="img-fluid" src="{{ asset($order->file_path) }}" height="200px" width="200px">
             </div>
     @endisset
 @endsection

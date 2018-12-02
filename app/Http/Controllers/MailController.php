@@ -9,7 +9,7 @@ class MailController extends Controller
 {
     public static function send()
     {
-       Mail::send(['text'=>'mail'], ['name'=>'ContactForm'], function($message){
+       Mail::send(['text'=>'templates/mail', ], ['name'=>'ContactForm'], function($message){
            $message->to('contactform@ukr.net', 'To Manager')->subject('Test');
            $message->from('contactform@ukr.net', 'From ContactForm');
        }) ;

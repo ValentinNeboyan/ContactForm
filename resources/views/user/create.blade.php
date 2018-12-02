@@ -3,7 +3,7 @@
 @section('content')
 
     <div >
-        <h3>Форма заказа</h3>
+        <h3><span class="badge badge-primary">Форма заказа</span></h3>
     </div>
     <form action="{{ route('orders.store') }}" method="post" enctype="multipart/form-data">
         @csrf
@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
             <label for="body">Сообщение</label>
-            <textarea name="body" id="body"  class="form-control">{{ old('body') }}</textarea>
+            <textarea name="body" id="body"  class="form-control" required>{{ old('body') }}</textarea>
         </div>
         <div class="form-group">
             <label>Прикрепить файл</label>

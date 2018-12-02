@@ -40,6 +40,10 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    /**
+     * Where to redirect users after login.
+     * @return string
+     */
     protected function redirectTo( ) {
         if (Auth::check() && Auth::user()->role->name == 'admin') {
             return 'admin';
@@ -48,7 +52,7 @@ class LoginController extends Controller
             return 'orders';
         }
         else {
-            return '/home';
+            return 'home';
         }
     }
 }

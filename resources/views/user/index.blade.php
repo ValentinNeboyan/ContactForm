@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <h3>Мои заказы</h3>
+    <h3><span class="badge badge-primary">Мои заказы</span></h3>
             <table class="table">
                 <thead class="thead-dark">
                 <tr>

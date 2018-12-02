@@ -43,6 +43,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/orders">Мои заказы</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('user.profile') }}">Мой профиль</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
